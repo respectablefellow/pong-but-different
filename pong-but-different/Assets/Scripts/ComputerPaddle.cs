@@ -13,22 +13,22 @@ public class ComputerPaddle : Paddle
         {
             if (this.ball.position.y > this.transform.position.y) //If the ball position is above our paddle, move up
             {
-                _rigidbody.AddForce(Vector2.up * this.speed);
+                rb.AddForce(Vector2.up * this.speed);
             }
             else if (this.ball.position.y < this.transform.position.x) //If ball is below paddle, move down
             {
-                _rigidbody.AddForce(Vector2.down * this.speed);
+                rb.AddForce(Vector2.down * this.speed);
             }
         } 
         else //When ball moves away
         {
             if (this.transform.position.y > 0.0f)
             {
-                _rigidbody.AddForce(Vector2.down * this.speed);
+                rb.AddForce(Vector2.down * this.speed);
             }
             else if(this.transform.position.y < 0.0f)
             {
-               _rigidbody.AddForce(Vector2.up * this.speed);
+               rb.AddForce(Vector2.up * this.speed);
             } 
         }
     }

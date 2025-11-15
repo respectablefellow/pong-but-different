@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class PlayerPaddle : Paddle
 {
-    private Vector2 _direction;
+    private Vector2 direction;
 
     private void Update()
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            _direction = Vector2.up;
+            direction = Vector2.up;
         } else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            _direction = Vector2.down;
+            direction = Vector2.down;
         }else
         {
-            _direction = Vector2.zero;
+            direction = Vector2.zero;
         }
 
     }
 
     private void FixedUpdate()
     {//sqr.Magnitude = is it moving?
-        if (_direction.sqrMagnitude != 0)
+        if (direction.sqrMagnitude != 0)
         {
-            _rigidbody.AddForce(_direction * this.speed);
+            rb.AddForce(direction * this.speed);
         }
     }
 }

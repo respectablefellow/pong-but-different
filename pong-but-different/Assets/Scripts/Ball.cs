@@ -5,18 +5,25 @@ public class Ball : MonoBehaviour
     //The starting Speed of the Ball in the beginning
     private float speed = 200.0f;
 
-    private Rigidbody2D _rigidbody;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {
+        ResetPosition();
         AddStartingForce();
     }
 
-    private void AddStartingForce()
+    public void ResetPosition()
+    {
+        rb.position = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
+    }
+
+    public void AddStartingForce()
     {
         //Randomises the start direction
         float x = Random.value < 0.5f ? -1.0f : 1.0f;
@@ -25,14 +32,16 @@ public class Ball : MonoBehaviour
                                         Random.Range(0.5f, 1.0f);
 
         Vector2 direction = new Vector2(x, y);
-        _rigidbody.AddForce(direction * this.speed);  
+        rb.AddForce(direction * this.speed);  
     }
 
     //Used to access the rigidbody of the ball without making it public
     public void AddForce(Vector2 force)
     {
-        _rigidbody.AddForce(force);
+        rb.AddForce(force);
     }
+
+
 }
 
 
