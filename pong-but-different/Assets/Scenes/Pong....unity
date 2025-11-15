@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 436480592}
   - component: {fileID: 436480591}
   - component: {fileID: 436480590}
+  - component: {fileID: 436480594}
   m_Layer: 0
   m_Name: Computer Paddle
   m_TagString: Untagged
@@ -199,7 +200,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDamping: 2
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -210,7 +211,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 5
 --- !u!212 &436480592
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -284,6 +285,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436480594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436480589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d6ec5a0c1cd014cab422aa8fe54c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ComputerPaddle
+  speed: 10
+  ball: {fileID: 1413680990}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +688,7 @@ GameObject:
   - component: {fileID: 1326419661}
   - component: {fileID: 1326419660}
   - component: {fileID: 1326419659}
+  - component: {fileID: 1326419663}
   m_Layer: 0
   m_Name: Player Paddle
   m_TagString: Untagged
@@ -741,7 +757,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDamping: 2
   m_AngularDamping: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -752,7 +768,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 5
 --- !u!212 &1326419661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -826,6 +842,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1326419663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326419658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293e2957242d4e54e8d2a1f10479a1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerpaddle
+  speed: 10
 --- !u!1 &1336582056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1087,7 @@ GameObject:
   - component: {fileID: 1413680991}
   - component: {fileID: 1413680990}
   - component: {fileID: 1413680989}
+  - component: {fileID: 1413680993}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1127,7 +1157,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7180adafef9ff934b831e7f57917d3e0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1211,6 +1241,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413680993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413680988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6219e6b1b3ca5aa4f9c26b9c02ab5eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ball
 --- !u!1 &1923381089
 GameObject:
   m_ObjectHideFlags: 0
