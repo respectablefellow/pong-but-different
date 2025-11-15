@@ -27,6 +27,12 @@ public class Ball : MonoBehaviour
         Vector2 direction = new Vector2(x, y);
         _rigidbody.AddForce(direction * this.speed);  
     }
+
+    //Used to access the rigidbody of the ball without making it public
+    public void AddForce(Vector2 force)
+    {
+        _rigidbody.AddForce(force);
+    }
 }
 
 

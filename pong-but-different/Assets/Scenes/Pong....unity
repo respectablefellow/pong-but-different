@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 436480591}
   - component: {fileID: 436480590}
   - component: {fileID: 436480594}
+  - component: {fileID: 436480595}
   m_Layer: 0
   m_Name: Computer Paddle
   m_TagString: Untagged
@@ -299,6 +300,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ComputerPaddle
   speed: 10
   ball: {fileID: 1413680990}
+--- !u!114 &436480595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436480589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7d00ddcd0972f4a9355ba686ef5964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncySurface
+  bounceStrength: 50
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271546668}
   - component: {fileID: 1271546667}
+  - component: {fileID: 1271546669}
   m_Layer: 0
   m_Name: Top Wall
   m_TagString: Untagged
@@ -598,6 +613,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271546669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271546666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7d00ddcd0972f4a9355ba686ef5964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncySurface
+  bounceStrength: 5
 --- !u!1 &1293097390
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +717,7 @@ GameObject:
   - component: {fileID: 1326419660}
   - component: {fileID: 1326419659}
   - component: {fileID: 1326419663}
+  - component: {fileID: 1326419664}
   m_Layer: 0
   m_Name: Player Paddle
   m_TagString: Untagged
@@ -855,6 +884,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::playerpaddle
   speed: 10
+--- !u!114 &1326419664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326419658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7d00ddcd0972f4a9355ba686ef5964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncySurface
+  bounceStrength: 50
 --- !u!1 &1336582056
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1336582058}
   - component: {fileID: 1336582057}
+  - component: {fileID: 1336582059}
   m_Layer: 0
   m_Name: Bottom Wall
   m_TagString: Untagged
@@ -933,6 +976,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336582059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336582056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7d00ddcd0972f4a9355ba686ef5964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncySurface
+  bounceStrength: 5
 --- !u!1 &1349157318
 GameObject:
   m_ObjectHideFlags: 0
