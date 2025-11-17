@@ -15,47 +15,52 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI redScoreText;
     public TextMeshProUGUI blueScoreText;
-    private TextMeshProUGUI playerScoreText;
-    private TextMeshProUGUI computerScoreText;
 
     public ScoringZone redZone;
     public ScoringZone blueZone;
-    private ScoringZone playerZone;
-    private ScoringZone computerZone;
 
-    private int playerScore;
-    private int computerScore;
+    private int redScore;
+    private int blueScore;
+
+    private bool isPaused = false;
 
     private void Start()
     {
         Time.timeScale = 0f; //Game pauses
         ui.ShowStartMenu();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+                ui.ResumeGame();
+            else
+                ui.PauseGame();
+        }
+    }
 
     //Setup
     public void ChooseRed()
     {
-        SetupGame(redPaddle, bluePaddle, redScoreText, blueScoreText, redZone, blueZone);
+        SetupGame(redPaddle, bluePaddle);
     }
 
     public void ChooseBlue()
     {
-        SetupGame(bluePaddle, redPaddle, blueScoreText, redScoreText, blueZone, redZone);
+        SetupGame(bluePaddle, redPaddle);
     }
 
-    private void SetupGame(Paddle player, Paddle computer, TextMeshProUGUI playerText, TextMeshProUGUI computerText, ScoringZone playerScoringZone, ScoringZone computerScoringZone)
+    private void SetupGame(Paddle player, Paddle computer)
     {
         playerPaddle = player;
         computerPaddle = computer;
 
-        playerScoreText = playerText;
-        computerScoreText = computerText;
-
-        playerZone = playerScoringZone;
-        computerZone = computerScoringZone;
-
         playerPaddle.TogglePaddleType(Paddle.PaddleType.Player);
         computerPaddle.TogglePaddleType(Paddle.PaddleType.Computer);
+
+        computerPaddle.sideDirection = (computerPaddle == bluePaddle) ? 1 : -1;
+
 
         NewGame();
     }
@@ -66,37 +71,36 @@ public class GameManager : MonoBehaviour
         ui.HideStartMenu();
         ui.ShowHUD();
         Time.timeScale = 1f; //Game resumes
-        SetPlayerScore(0);
-        SetComputerScore(0);
+        SetRedScore(0);
+        SetBlueScore(0);
     }
+
     public void NewRound()
     {
-        playerPaddle.ResetPosition();
-        computerPaddle.ResetPosition();
         ball.ResetPosition();
         ball.AddStartingForce();
     }
 
     //Score
-    public void PlayerScored()
+    public void RedScored()
     {
-        SetPlayerScore(playerScore +1);
+        SetRedScore(redScore +1);
         NewRound();
     }
-    public void ComputerScored()
+    public void BlueScored()
     {
-        SetComputerScore(computerScore +1);
+        SetBlueScore(blueScore +1);
         NewRound();
     }
-    private void SetPlayerScore(int score)
+    private void SetRedScore(int score)
     {
-        playerScore = score;
-        playerScoreText.text = score.ToString();
+        redScore = score;
+        redScoreText.text = score.ToString();
     }
-    private void SetComputerScore(int score)
+    private void SetBlueScore(int score)
     {
-        computerScore = score;
-        computerScoreText.text = score.ToString();
+        blueScore = score;
+        blueScoreText.text = score.ToString();
     }
 
     public void EndGame()

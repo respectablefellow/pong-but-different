@@ -6,10 +6,11 @@ public class Paddle : MonoBehaviour
     public PaddleType paddleType = PaddleType.Player; //speichert welche Steuerung das Paddle hat
 
     public float speed = 10f;
-    private Rigidbody2D ball;
+    public int sideDirection = 1;
 
+    private Rigidbody2D ball;
     private Rigidbody2D rb;
-    private Vector2 direction;
+    private Vector2 moveDir;
 
     private void Awake()
     {
@@ -30,11 +31,9 @@ public class Paddle : MonoBehaviour
         }
     }
     private void FixedUpdate()
-    {//sqr.Magnitude = is it moving?
-        if (paddleType == PaddleType.Player)
-        {
-            if (direction.sqrMagnitude != 0)
-                rb.AddForce(direction * speed);
+    {
+        if (moveDir.sqrMagnitude != 0) { 
+                rb.AddForce(moveDir * speed);
         }
         else if (paddleType == PaddleType.Computer)
         {
@@ -44,26 +43,30 @@ public class Paddle : MonoBehaviour
 
     private void HandleComputerMovement()
     {
+  
         if (ball == null) return;
 
-        if (ball.linearVelocity.x > 0.0f) //If ball is moving towards ComputerPaddle
+        bool movingTowardComputer = ball.linearVelocity.x * sideDirection >= 0f;
+
+
+        if (movingTowardComputer) 
         {
-            if (ball.position.y > transform.position.y) //If the ball position is above our paddle, move up
+            if (ball.position.y > transform.position.y) //If the ball position is above paddle, move up
             {
                 rb.AddForce(Vector2.up * speed);
             }
-            else if (ball.position.y < transform.position.x) //If ball is below paddle, move down
+            else if (ball.position.y < transform.position.y) //If ball is below paddle, move down
             {
                 rb.AddForce(Vector2.down * speed);
             }
         }
         else //When ball moves away
         {
-            if (transform.position.y > 0.0f)
+            if (transform.position.y > -1f)
             {
                 rb.AddForce(Vector2.down * speed);
             }
-            else if (transform.position.y < 0.0f)
+            else if (transform.position.y < -1f)
             {
                 rb.AddForce(Vector2.up * speed);
             }
@@ -75,15 +78,15 @@ public class Paddle : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            direction = Vector2.up;
+            moveDir = Vector2.up;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            direction = Vector2.down;
+            moveDir = Vector2.down;
         }
         else
         {
-            direction = Vector2.zero;
+            moveDir = Vector2.zero;
         }
     }
 

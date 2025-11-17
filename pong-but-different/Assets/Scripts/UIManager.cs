@@ -39,5 +39,17 @@ public class UIManager : MonoBehaviour
         hud.gameObject.SetActive(false);
     }
 
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f; 
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f; 
+    }
+
 }
 
